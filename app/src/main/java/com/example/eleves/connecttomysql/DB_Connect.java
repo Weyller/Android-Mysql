@@ -219,10 +219,11 @@ public class DB_Connect {
 
        boolean status = false;
       //  Client client = new Client();
-         Livre livre = new Livre();
 
-        ArrayList<Client> listeClient = new ArrayList<>();
-        ArrayList<Livre> listeLivre = new ArrayList<>();
+
+         ArrayList<Livre> listeLivre = new ArrayList<>();
+
+
 
         try {
 
@@ -243,7 +244,7 @@ public class DB_Connect {
 
             while (rs.next()) {
 
-
+                Livre livre = new Livre();
 
                 livre.setNumExemplaire(rs.getInt(NUM_EXEMPLAIRE));
                 livre.setISBN(rs.getLong(ISBN));
@@ -265,12 +266,9 @@ public class DB_Connect {
             }
 
 
-                listeLivre.add(livre);
 
-            for (Livre i:listeLivre
-                 ) { System.out.println(i);
 
-            }
+
 
             Log.e("LOG_STATUS", "Status = " + status);
 
