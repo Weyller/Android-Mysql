@@ -1,5 +1,6 @@
 package com.example.eleves.connecttomysql;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,11 +9,11 @@ import java.util.List;
  * Created by Administrator on 8/28/2017.
  */
 
-public class Livre {
+public class Livre implements Serializable{
 
     private int numExemplaire;
     private long ISBN;
-    private Date datePublication;
+    private String datePublication;
     private int nbPages;
     private int quantite;
     private int disponibilite;
@@ -26,7 +27,13 @@ public class Livre {
 
     //==============================================
 
-    public Livre(int numExemplaire, long ISBN, Date datePublication, int nbPages, int quantite,
+    public Livre() {
+
+
+    }
+
+
+    public Livre(int numExemplaire, long ISBN, String datePublication, int nbPages, int quantite,
                  int disponibilite, int idEditeur, String titre, String nomEditeur, String nomAuteur,
                  String prenAuteur, int typeLivre) {
         this.numExemplaire = numExemplaire;
@@ -63,11 +70,11 @@ public class Livre {
         this.ISBN = ISBN;
     }
 
-    public Date getDatePublication() {
+    public String getDatePublication() {
         return datePublication;
     }
 
-    public void setDatePublication(Date datePublication) {
+    public void setDatePublication(String datePublication) {
         this.datePublication = datePublication;
     }
 

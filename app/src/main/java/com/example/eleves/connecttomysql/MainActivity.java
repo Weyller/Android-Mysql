@@ -9,6 +9,7 @@ import android.widget.Toast;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +19,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         {
+
+            setTitle("Bibliotheque George-Etienne Cartier");
+
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
             b1 = (Button) findViewById(R.id.b1);
@@ -120,16 +124,16 @@ public class MainActivity extends AppCompatActivity {
 
                                 //=====================================================
 
-                                   int status = DB_Connect.insertData();
+                                   ArrayList<Livre> reqLivre = DB_Connect.getLivre();
 
                                 //=====================================================
 
-                               if(status == 1) {
+                               if(reqLivre != null) {
 
                                    runOnUiThread(new Runnable() {
                                        @Override
                                        public void run() {
-                                           Toast.makeText(getApplicationContext(), "Donnes inserees",
+                                           Toast.makeText(getApplicationContext(), "Donnes disponibles",
                                                    Toast.LENGTH_SHORT).show();
                                        }
                                    });
@@ -140,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                                 runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        Toast.makeText(getApplicationContext(), "Problemes d'insertion",
+                                        Toast.makeText(getApplicationContext(), "Problemes requetes",
                                                 Toast.LENGTH_SHORT).show();
                                     }
                                 });

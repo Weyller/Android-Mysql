@@ -1,12 +1,13 @@
 package com.example.eleves.connecttomysql;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Administrator on 8/28/2017.
  */
 
-public class Client {
+public class Client implements Serializable{
 
 
     private int idClient;
@@ -17,6 +18,10 @@ public class Client {
     private String login;
     private String password;
     private String email;
+
+    public Client() {
+
+    }
 
     public Client(int idClient, String nom, String prenom, String adresse, String telephone, String login, String password, String email) {
         this.idClient = idClient;

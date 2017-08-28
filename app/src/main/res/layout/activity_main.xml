@@ -13,12 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="120dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="111dp"
-        android:text="Boutton1" />
-
+        android:layout_below="@+id/textView"
+        android:layout_marginLeft="29dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="38dp"
+        android:text="Create" />
 
 
     <Button
@@ -26,31 +25,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="Boutton2"
-        android:layout_below="@+id/b1"
-        android:layout_alignLeft="@+id/b1"
-        android:layout_alignStart="@+id/b1"
-        android:layout_marginTop="61dp" />
+        android:layout_alignBaseline="@+id/b1"
+        android:layout_alignBottom="@+id/b1"
+        android:layout_centerHorizontal="true"
+        android:text="Insert" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/b1"
         android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/b1"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="28dp"
-        android:text="Resto 1" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:text="Bibliotheque GEC" />
 
     <Button
         android:id="@+id/b3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/b2"
-        android:layout_alignRight="@+id/b2"
+        android:text="GET DATA"
+        android:layout_alignBaseline="@+id/b2"
+        android:layout_alignBottom="@+id/b2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="22dp"
+        android:layout_marginEnd="22dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Liste de lives"
+        android:layout_marginTop="16dp"
         android:layout_below="@+id/b2"
-        android:layout_marginTop="85dp"
-        android:text="INSERT" />
+        android:layout_centerHorizontal="true" />
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/b3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
