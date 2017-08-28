@@ -10,29 +10,51 @@ import java.util.List;
 
 public class Livre {
 
+    private int numExemplaire;
     private long ISBN;
     private Date datePublication;
     private int nbPages;
     private int quantite;
+    private int disponibilite;
     private int idEditeur;
-    private String nomEditeur;
     private String titre;
-    private String auteurs;
-    private int numExemplaire;
+    private String nomEditeur;
+    private String nomAuteur;
+    private String prenAuteur;
+    private int typeLivre;
+
+
+    //==============================================
+
+    public Livre(int numExemplaire, long ISBN, Date datePublication, int nbPages, int quantite,
+                 int disponibilite, int idEditeur, String titre, String nomEditeur, String nomAuteur,
+                 String prenAuteur, int typeLivre) {
+        this.numExemplaire = numExemplaire;
+        this.ISBN = ISBN;
+        this.datePublication = datePublication;
+        this.nbPages = nbPages;
+        this.quantite = quantite;
+        this.disponibilite = disponibilite;
+        this.idEditeur = idEditeur;
+        this.titre = titre;
+        this.nomEditeur = nomEditeur;
+        this.nomAuteur = nomAuteur;
+        this.prenAuteur = prenAuteur;
+        this.typeLivre = typeLivre;
+    }
 
 
     //----------------------------
 
 
-    public String getAuteurs() {
-        return auteurs;
+    public int getNumExemplaire() {
+        return numExemplaire;
     }
 
-    public void setAuteurs(String auteurs) {
-        this.auteurs = auteurs;
+    public void setNumExemplaire(int numExemplaire) {
+        this.numExemplaire = numExemplaire;
     }
 
-    //---------------------------------------------------
     public long getISBN() {
         return ISBN;
     }
@@ -65,20 +87,20 @@ public class Livre {
         this.quantite = quantite;
     }
 
+    public int getDisponibilite() {
+        return disponibilite;
+    }
+
+    public void setDisponibilite(int disponibilite) {
+        this.disponibilite = disponibilite;
+    }
+
     public int getIdEditeur() {
         return idEditeur;
     }
 
     public void setIdEditeur(int idEditeur) {
         this.idEditeur = idEditeur;
-    }
-
-    public String getNomEditeur() {
-        return nomEditeur;
-    }
-
-    public void setNomEditeur(String nomEditeur) {
-        this.nomEditeur = nomEditeur;
     }
 
     public String getTitre() {
@@ -89,31 +111,56 @@ public class Livre {
         this.titre = titre;
     }
 
-
-
-
-    public int getNumExemplaire() {
-        return numExemplaire;
+    public String getNomEditeur() {
+        return nomEditeur;
     }
 
-    public void setNumExemplaire(int numExemplaire) {
-        this.numExemplaire = numExemplaire;
+    public void setNomEditeur(String nomEditeur) {
+        this.nomEditeur = nomEditeur;
     }
-    //--------------------------------------------
+
+    public String getNomAuteur() {
+        return nomAuteur;
+    }
+
+    public void setNomAuteur(String nomAuteur) {
+        this.nomAuteur = nomAuteur;
+    }
+
+    public String getPrenAuteur() {
+        return prenAuteur;
+    }
+
+    public void setPrenAuteur(String prenAuteur) {
+        this.prenAuteur = prenAuteur;
+    }
+
+    public int getTypeLivre() {
+        return typeLivre;
+    }
+
+    public void setTypeLivre(int typeLivre) {
+        this.typeLivre = typeLivre;
+    }
+
+    //===============================
 
 
     @Override
     public String toString() {
         return "Livre{" +
-                "ISBN=" + ISBN +
+                "numExemplaire=" + numExemplaire +
+                ", ISBN=" + ISBN +
                 ", datePublication=" + datePublication +
                 ", nbPages=" + nbPages +
                 ", quantite=" + quantite +
+                ", disponibilite=" + disponibilite +
                 ", idEditeur=" + idEditeur +
-                ", nomEditeur='" + nomEditeur + '\'' +
                 ", titre='" + titre + '\'' +
-                ", auteurs=" + auteurs +
-                ", numExemplaire=" + numExemplaire +
+                ", nomEditeur='" + nomEditeur + '\'' +
+                ", nomAuteur='" + nomAuteur + '\'' +
+                ", prenAuteur='" + prenAuteur + '\'' +
+                ", typeLivre=" + typeLivre +
                 '}';
     }
 }

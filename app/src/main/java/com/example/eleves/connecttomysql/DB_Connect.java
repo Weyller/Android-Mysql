@@ -9,7 +9,9 @@ package com.example.eleves.connecttomysql;
 import android.util.Log;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 
 public class DB_Connect {
@@ -62,7 +64,7 @@ public class DB_Connect {
             stmt = con.createStatement();
 
 
-            status = stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS resto");
+            status = stmt.executeUpdate("CREATE DATABASE IF NOT EXISTS biblio");
 
             Log.e("LOG_STATUS","STATUS = " + status);
             stmt.close();
@@ -98,25 +100,90 @@ public class DB_Connect {
             //
             Statement stmt;
             stmt = con.createStatement();
-            stmt.executeQuery("use resto");
+            stmt.executeQuery("use biblio");
+            //===================================================================
 
-            stmt.executeUpdate(
-                    "CREATE TABLE IF NOT EXISTS composants " +
-                            "(Type_de_composant VARCHAR(30) NOT NULL," +
-                            " Num_du_composant INT NOT NULL, " +
-                            " Composant VARCHAR(30) NOT NULL UNIQUE, " +
-                            "PRIMARY KEY (Type_de_composant, Num_du_composant))");
-            stmt.executeUpdate(
-                    "CREATE TABLE IF NOT EXISTS commandes " +
-                            "(Commande INT NOT NULL, " +
-                            " TypeDeComposant VARCHAR(30) NOT NULL," +
-                            " NumDuComposant INT NOT NULL, " +
 
-                            " PRIMARY KEY (Commande, TypeDeComposant)," +
-                            " FOREIGN KEY (TypeDeComposant,NumDuComposant) " +
-                            "REFERENCES composants(Type_de_composant, " +
-                            "Num_du_composant))");
-            status = 1;
+            //-----------Client----------------------//
+            stmt = con.createStatement();
+            status = stmt.executeUpdate(
+                    "CREATE TABLE IF NOT EXISTS Client " +
+                            "(IdClient int(10)  NOT NULL AUTO_INCREMENT, " +
+                            "NomClient VARCHAR(50) NOT NULL,  " +
+                            "PrClient VARCHAR(50) NOT NULL,  " +
+                            "AdrClient VARCHAR(50) NOT NULL,  " +
+                            "CelClient VARCHAR(15) NOT NULL,  " +
+                            "Login VARCHAR(15) DEFAULT NULL,  " +
+                            "Password VARCHAR(15) DEFAULT NULL,  " +
+                            "EmailClient VARCHAR(50) NOT NULL,  " +
+                            "PRIMARY KEY(IdClient))");
+
+            status = stmt.executeUpdate("INSERT INTO `client` (`IdClient`, `NomClient`, `PrClient`, `AdrClient`," +
+                    " `CelClient`, `Login`, `Password`, `EmailClient`) VALUES ('10', 'Robitaille', 'Antoine'," +
+                    " '123 rue du Sud Longueuil', '514-598-8897', NULL, NULL, 'rob@gmail.com'), ('11', 'Desir', 'Weyller'," +
+                    " '157 rue Briggs Montreal', '514-929-7894', NULL, NULL, 'weyller@gmail.com')");
+
+
+            //-----------Livre----------------------//
+            stmt = con.createStatement();
+            status =  stmt.executeUpdate(
+                    "CREATE TABLE IF NOT EXISTS Livre " +
+                            "(NumExemplaire int(10)  NOT NULL AUTO_INCREMENT, " +
+                            "ISBN BIGINT(16)  NOT NULL , " +
+                            "DatePub VARCHAR(10) NOT NULL,  " +
+                            "NbPages VARCHAR(10) NOT NULL,  " +
+                            "Nombre int(10) DEFAULT 1,  " +
+                            "Disponibilite int(1) DEFAULT 1,  " +
+                            "Titre VARCHAR(50) NOT NULL,  " +
+                            "NomEditeur VARCHAR(50) NOT NULL, " +
+                            "NomAuteur VARCHAR(50) NOT NULL, " +
+                            "PrAuteur VARCHAR(50) NOT NULL,  " +
+                            "IdTypeLivre int(10) NOT NULL,  " +
+
+                            "PRIMARY KEY(NumExemplaire))");
+
+            status = stmt.executeUpdate("INSERT INTO `livre` (`NumExemplaire`, `ISBN`, `DatePub`, `NbPages`, `Nombre`, `Disponibilite`, `Titre`," +
+                    " `NomEditeur`, `NomAuteur`, `PrAuteur`, `IdTypeLivre`) VALUES ('1001', '1128745887', '1995', '350', '1', '1'," +
+                    " 'The Rosetta Stone', 'Harper Collins', 'Brown', 'Dan', '1')");
+
+            status = stmt.executeUpdate("INSERT INTO `livre` (`NumExemplaire`, `ISBN`, `DatePub`, `NbPages`, `Nombre`, `Disponibilite`, `Titre`," +
+                    " `NomEditeur`, `NomAuteur`, `PrAuteur`, `IdTypeLivre`) VALUES ('1002', '128456545465', '1966', '355', '1', '1'," +
+                    " 'Le nom de la rose', 'Edition du jour', 'Flammant', 'Alice', '1')");
+
+            status = stmt.executeUpdate("INSERT INTO `livre` (`NumExemplaire`, `ISBN`, `DatePub`, `NbPages`, `Nombre`, `Disponibilite`, `Titre`," +
+                    " `NomEditeur`, `NomAuteur`, `PrAuteur`, `IdTypeLivre`) VALUES ('1003', '18998881871', '2002', '400', '1', '1'," +
+                    " 'Les animaux', 'Edition Planete', 'Clemment', 'Ariel', '1')");
+
+            status =stmt.executeUpdate("INSERT INTO `livre` (`NumExemplaire`, `ISBN`, `DatePub`, `NbPages`, `Nombre`, `Disponibilite`, `Titre`," +
+                    " `NomEditeur`, `NomAuteur`, `PrAuteur`, `IdTypeLivre`) VALUES ('1004', '196672273346', '1990', '520', '1', '1'," +
+                    " 'Les follies', 'Edition du fou', 'Belle', 'Toni', '1')");
+
+            status =stmt.executeUpdate("INSERT INTO `livre` (`NumExemplaire`, `ISBN`, `DatePub`, `NbPages`, `Nombre`, `Disponibilite`, `Titre`," +
+                    " `NomEditeur`, `NomAuteur`, `PrAuteur`, `IdTypeLivre`) VALUES ('1005', '189777789854', '1939', '320', '1', '1', " +
+                    "'L Etranger', 'Edition Gallimard', 'Camus', 'Albert', '1')");
+
+            status =stmt.executeUpdate("INSERT INTO `livre` (`NumExemplaire`, `ISBN`, `DatePub`, `NbPages`, `Nombre`, `Disponibilite`, `Titre`," +
+                    " `NomEditeur`, `NomAuteur`, `PrAuteur`, `IdTypeLivre`) VALUES ('1006', '10077784452', '1979', '358', '1', '1'," +
+                    " 'The Shinning', 'Harper Collins', 'King', 'Stephen', '1')");
+
+            status = stmt.executeUpdate("INSERT INTO `livre` (`NumExemplaire`, `ISBN`, `DatePub`, `NbPages`, `Nombre`, `Disponibilite`, `Titre`, " +
+                    "`NomEditeur`, `NomAuteur`, `PrAuteur`, `IdTypeLivre`) VALUES ('1007', '196672273346', '1990', '520', '1', '1', " +
+                    "'Les follies', 'Edition du fou', 'Belle', 'Toni', '1')");
+
+            status =stmt.executeUpdate("INSERT INTO `livre` (`NumExemplaire`, `ISBN`, `DatePub`, `NbPages`, `Nombre`, `Disponibilite`, `Titre`," +
+                    " `NomEditeur`, `NomAuteur`, `PrAuteur`, `IdTypeLivre`) VALUES ('1008', '189777789854', '1939', '320', '1', '1'," +
+                    " 'L Etranger', 'Edition Gallimard', 'Camus', 'Albert', '1')");
+
+            status =stmt.executeUpdate("INSERT INTO `livre` (`NumExemplaire`, `ISBN`, `DatePub`, `NbPages`, `Nombre`, `Disponibilite`, `Titre`," +
+                    " `NomEditeur`, `NomAuteur`, `PrAuteur`, `IdTypeLivre`) VALUES ('1009', '10077784452', '1979', '358', '1', '1'," +
+                    " 'The Shinning', 'Harper Collins', 'King', 'Stephen', '1')");
+
+
+
+
+
+            //====================================================
+            //status = 1;
 
             stmt.close();
             con.close();
@@ -134,52 +201,40 @@ public class DB_Connect {
 
     //====================================================================================
 
-    public static int insertData() {
+    public static boolean getData() {
 
-        int status = 0;
+       boolean status = false;
+        Client client = new Client();
+        Livre livre = new Livre();
+
+        ArrayList<Client> listeClient = new ArrayList<>();
+
 
         try {
 
             con = DBConnection();
 
-            //==================================================  Insert composants
+            //==================================================
 
             con.setAutoCommit(false);
             Statement stmt = con.createStatement();
-            stmt.executeQuery("use resto");
+            stmt.executeQuery("use biblio");
 
-            stmt.executeUpdate("INSERT INTO COMPOSANTS ( TYPE_DE_COMPOSANT, NUM_DU_COMPOSANT, COMPOSANT )" +
-                    "VALUES ('Plat principal', 1,'Maigret de canard')");
-            stmt.executeUpdate("INSERT INTO COMPOSANTS ( TYPE_DE_COMPOSANT, NUM_DU_COMPOSANT, COMPOSANT )" +
-                    "VALUES ('Dessert', 1,'Creme brulee')");
-            stmt.executeUpdate("INSERT INTO COMPOSANTS ( TYPE_DE_COMPOSANT, NUM_DU_COMPOSANT, COMPOSANT )" +
-                    "VALUES ('Dessert', 2,'Tarte de chocolat')");
-            stmt.executeUpdate("INSERT INTO COMPOSANTS ( TYPE_DE_COMPOSANT, NUM_DU_COMPOSANT, COMPOSANT )" +
-                    "VALUES ('Boisson', 1,'Vin maison')");
-            stmt.executeUpdate("INSERT INTO COMPOSANTS ( TYPE_DE_COMPOSANT, NUM_DU_COMPOSANT, COMPOSANT )" +
-                    "VALUES ('Boisson', 2,'Coca-Cola')");
 
-            // stmt.close();
-            // con.commit();
-            // con.close();
-            //==================================================  Insert Commandes
 
-            // con.setAutoCommit(false);
-            //  Statement stmt2 = con.createStatement();
-            stmt.executeUpdate("INSERT INTO COMMANDES ( COMMANDE, TYPEDECOMPOSANT, NUMDUCOMPOSANT )" +
-                    "VALUES (1, 'Plat principal', 1)");
-            stmt.executeUpdate("INSERT INTO COMMANDES ( COMMANDE, TYPEDECOMPOSANT, NUMDUCOMPOSANT )" +
-                    "VALUES (1, 'Dessert', 1)");
-            stmt.executeUpdate("INSERT INTO COMMANDES ( COMMANDE, TYPEDECOMPOSANT, NUMDUCOMPOSANT )" +
-                    "VALUES (1, 'Boisson', 1)");
-            stmt.executeUpdate("INSERT INTO COMMANDES ( COMMANDE, TYPEDECOMPOSANT, NUMDUCOMPOSANT )" +
-                    "VALUES (2, 'Dessert', 2)");
-            stmt.executeUpdate("INSERT INTO COMMANDES ( COMMANDE, TYPEDECOMPOSANT, NUMDUCOMPOSANT )" +
-                    "VALUES (2, 'Plat principal', 1)");
-            stmt.executeUpdate("INSERT INTO COMMANDES ( COMMANDE, TYPEDECOMPOSANT, NUMDUCOMPOSANT )" +
-                    "VALUES (2, 'Boisson', 2)");
+            String query = "SELECT * FROM `livre`";
+            ResultSet rs = stmt.executeQuery(query);
 
-            status = 1;
+
+            while (rs.next()) {
+
+
+
+            }
+
+
+
+
 
             Log.e("LOG_STATUS", "Status = " + status);
 
