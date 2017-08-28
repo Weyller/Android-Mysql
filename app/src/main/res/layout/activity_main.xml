@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.eleves.connecttomysql.MainActivity">
+
+
+    <Button
+        android:id="@+id/b1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="120dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="111dp"
+        android:text="Boutton1" />
+
+
+
+    <Button
+        android:id="@+id/b2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Boutton2"
+        android:layout_below="@+id/b1"
+        android:layout_alignLeft="@+id/b1"
+        android:layout_alignStart="@+id/b1"
+        android:layout_marginTop="61dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/b1"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/b1"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="28dp"
+        android:text="Resto 1" />
+
+    <Button
+        android:id="@+id/b3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/b2"
+        android:layout_alignRight="@+id/b2"
+        android:layout_below="@+id/b2"
+        android:layout_marginTop="85dp"
+        android:text="INSERT" />
+</RelativeLayout>
