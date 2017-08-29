@@ -24,44 +24,41 @@ public class LivreActivity extends AppCompatActivity {
 
         listLivre = (ArrayList<Livre>) intent.getSerializableExtra("livres");
 
-        System.out.println(listLivre);
-
-
      for(int i = 0; i<listLivre.size(); i++){
 
 
+     }
 
-
-     String s = String.valueOf(listLivre.get(i).getNumExemplaire());
+     String s = String.valueOf(listLivre.get(0).getNumExemplaire());
 
 
         TextView num = (TextView) findViewById(R.id.textViewExempl);
-        num.setText(String.valueOf(listLivre.get(i).getNumExemplaire()));
+        num.setText(String.valueOf(listLivre.get(0).getNumExemplaire()));
 
         TextView isbn = (TextView) findViewById(R.id.textViewisbn);
-        isbn.setText(String.valueOf(listLivre.get(i).getISBN()));
+        isbn.setText(String.valueOf(listLivre.get(0).getISBN()));
 
         TextView date = (TextView) findViewById(R.id.textViewdate);
-        date.setText(String.valueOf(listLivre.get(i).getDatePublication()));
+        date.setText(String.valueOf(listLivre.get(0).getDatePublication()));
 
         TextView editeur = (TextView) findViewById(R.id.textViewedit);
-        editeur.setText(String.valueOf(listLivre.get(i).getNomEditeur()));
+        editeur.setText(String.valueOf(listLivre.get(0).getNomEditeur()));
 
         TextView auteur = (TextView) findViewById(R.id.textViewauteur);
-        String nom = String.valueOf(listLivre.get(i).getNomAuteur());
-        String prenm = String.valueOf(listLivre.get(i).getPrenAuteur());
-        auteur.setText(prenm + nom);
+        String nom = String.valueOf(listLivre.get(5).getNomAuteur());
+        String prenm = String.valueOf(listLivre.get(5).getPrenAuteur());
+        auteur.setText(prenm +" "+ nom);
 
         TextView disp = (TextView) findViewById(R.id.textViewquant);
-        disp.setText(String.valueOf(listLivre.get(i).getDisponibilite()));
+        disp.setText(String.valueOf(listLivre.get(0).getDisponibilite()));
 
         TextView titre = (TextView) findViewById(R.id.textViewTitre);
-        titre.setText(String.valueOf(listLivre.get(i).getTitre()));
+        titre.setText(String.valueOf(listLivre.get(3).getTitre()));
 
 
 
 
-     }
+
 
 
 

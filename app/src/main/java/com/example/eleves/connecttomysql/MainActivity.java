@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,7 +25,7 @@ import static android.R.layout.simple_list_item_1;
 public class MainActivity extends AppCompatActivity {
 
 
-    Button bouttonCreate, b1, b2, b3;
+    Button bouttonListe, b1, b2, b3;
 
     ArrayList<Livre> listLivre = new ArrayList<>();
     ListView listView;
@@ -40,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
+
+            listView = (ListView)findViewById(R.id.list);
+
             b1 = (Button) findViewById(R.id.b1);
             b1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -147,8 +151,17 @@ public class MainActivity extends AppCompatActivity {
 
                                 Intent intent = new Intent(MainActivity.this, LivreActivity.class);
                                 intent.putExtra("livres", listLivre);
-                                startActivity(intent);
+                               // startActivity(intent);
 
+//                                //=====================================================
+//                                // Initialisation du ListView contenant la liste des livres
+//                                listView = (ListView)findViewById(R.id.list) ;
+
+//                                //---- ARRAY ADAPTER TO PRINT IN LISTVIEW --------------------------------------------------------------
+//                                adapter = new ArrayAdapter<Livre>(MainActivity.this,R.layout.list_view_livre,R.id.textViewauteur, listLivre);
+
+//                                // OBJET ADAPTER adapter passe a la listView livre
+//                                listView.setAdapter(adapter);
 
                                 //=====================================================
 
@@ -182,50 +195,58 @@ public class MainActivity extends AppCompatActivity {
             });
 
 
-
-
-            //======================================================================
-            //=====================================================
-            // Initialisation du ListView contenant la liste des livres
-            listView = (ListView)findViewById(R.id.list) ;
-
-            //---- ARRAY ADAPTER TO PRINT IN LISTVIEW --------------------------------------------------------------
-            adapter = new ArrayAdapter<Livre>(MainActivity.this, android.R.layout.simple_list_item_2, android.R.id.text1, listLivre)
-            {
-                public Livre getItem(int position){
-                    return listLivre.get(position);
-                }
-
+bouttonListe = (Button)findViewById(R.id.btlist);
+            bouttonListe.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public View getView(int position, View convertView, ViewGroup parent) {
-                    View view = super.getView(position, convertView, parent);
+                public void onClick(View v) {
 
-                    TextView text1 = (TextView) view.findViewById(android.R.id.text1);
-                    TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-                    /**********************/
 
-                    //------------------------
-                    // Log.d("acceuil"," testing chien");
-                    //System.out.println(chiens.get(position).getNom());
-                    //System.out.println(chiens.get(position).getSexe());
+                    adapter = new ArrayAdapter<Livre>(MainActivity.this,R.layout.list_view_livre, R.id.textViewauteur, listLivre)
+                    {
+                        public Livre getItem(int position){
+                            return listLivre.get(position);
+                        }
 
-                    // text1.setTextColor(Color.BLUE);
-                    // text2.setTextColor(Color.BLUE);
-                    text1.setTypeface(Typeface.DEFAULT_BOLD);
-                    text2.setTypeface(Typeface.DEFAULT_BOLD);
-                    text1.setTextSize(20);
-                    text1.setText(listLivre.get(position).toString());
-                    text2.setText("Num: "+ listLivre.get(position).getNumExemplaire() +"ISBN" + listLivre.get(position).getISBN());
-                    return view;
+                        @Override
+                        public View getView(int position, View convertView, ViewGroup parent) {
+                            View view = super.getView(position, convertView, parent);
+
+                            TextView text1 = (TextView) view.findViewById(R.id.textViewauteur);
+                            TextView text2 = (TextView) view.findViewById(R.id.textViewTitre);
+                            /**********************/
+
+                            //------------------------
+                            // Log.d("acceuil"," testing chien");
+                            //System.out.println(chiens.get(position).getNom());
+                            //System.out.println(chiens.get(position).getSexe());
+
+                            // text1.setTextColor(Color.BLUE);
+                            // text2.setTextColor(Color.BLUE);
+                           // text1.setTypeface(Typeface.DEFAULT_BOLD);
+                            text2.setTypeface(Typeface.DEFAULT_BOLD);
+                            text2.setTextSize(20);
+                            text1.setText(listLivre.get(position).toString());
+                            text1.setText((listLivre.get(position).getPrenAuteur() + " " +listLivre.get(position).getNomAuteur()));
+                            text2.setText(listLivre.get(position).getTitre());
+//                            text2.setText("Exemplaire: "+ listLivre.get(position).getNumExemplaire()
+                            //        + "  Etat: " + chiens.get(position).getEtatSteril()
+                            //        + "  Sexe: " + chiens.get(position).getSexe()
+//                                      );
+
+                            return view;
+                        }
+                    };
+                    //-------------------------------------------------------------------------------------------------------
+
+                    // OBJET ADAPTER adapter passe a la listView
+                    listView.setAdapter(adapter);
+
+
+
+
+
                 }
-            };
-            //-------------------------------------------------------------------------------------------------------
-
-            // OBJET ADAPTER adapter passe a la listView livre
-            listView.setAdapter(adapter);
-
-
-
+            });
 
 
 

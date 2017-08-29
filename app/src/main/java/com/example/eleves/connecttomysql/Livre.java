@@ -155,19 +155,9 @@ public class Livre implements Serializable{
 
     @Override
     public String toString() {
-        return "Livre{" +
-                "numExemplaire=" + numExemplaire +
-                ", ISBN=" + ISBN +
-                ", datePublication=" + datePublication +
-                ", nbPages=" + nbPages +
-                ", quantite=" + quantite +
-                ", disponibilite=" + disponibilite +
-                ", idEditeur=" + idEditeur +
-                ", titre='" + titre + '\'' +
-                ", nomEditeur='" + nomEditeur + '\'' +
-                ", nomAuteur='" + nomAuteur + '\'' +
-                ", prenAuteur='" + prenAuteur + '\'' +
-                ", typeLivre=" + typeLivre +
-                '}';
+        return  "Titre= " + titre + "\n" +
+                "Editeur=  " + nomEditeur + "\n" +
+                "Auteur=  " + prenAuteur+ " " +  nomAuteur
+               ;
     }
 }

@@ -2,162 +2,57 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/myListView">
 
     <TextView
         android:id="@+id/textViewauteur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Dan Brown"
         android:layout_alignBaseline="@+id/textView18"
         android:layout_alignBottom="@+id/textView18"
-        android:layout_alignLeft="@+id/textViewedit"
-        android:layout_alignStart="@+id/textViewedit"
-        android:text="Dan Brown" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="85dp"
+        android:layout_marginEnd="85dp" />
 
     <TextView
         android:id="@+id/textViewTitre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="27dp"
         android:gravity="center"
         android:text="The Rosetta Stone"
-        android:textSize="24sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_below="@+id/textViewTitre"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
-        app:srcCompat="@mipmap/book_ico" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView10"
-        android:layout_alignStart="@+id/textView10"
-        android:layout_below="@+id/textView10"
-        android:layout_marginTop="35dp"
-        android:text="ISBN:"
-        android:textSize="14sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Disponibile:"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/textView18"
-        android:layout_alignLeft="@+id/textView18"
-        android:layout_alignStart="@+id/textView18"
-        android:layout_marginTop="30dp" />
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="27dp"
+        android:layout_marginStart="27dp" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView16"
-        android:layout_alignStart="@+id/textView16"
-        android:layout_below="@+id/textView16"
-        android:layout_marginTop="30dp"
         android:text="Auteurs:"
         android:textSize="14sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView14"
-        android:layout_alignStart="@+id/textView14"
-        android:layout_below="@+id/textView14"
-        android:layout_marginTop="33dp"
-        android:text="Editeur:"
-        android:textSize="14sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView8"
-        android:layout_alignStart="@+id/textView8"
-        android:layout_below="@+id/textView8"
-        android:layout_marginTop="33dp"
-        android:text="Date de publication:"
-        android:textSize="14sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="27dp"
-        android:layout_marginStart="27dp"
-        android:text="Numero d'exemplaire:"
-        android:textSize="14sp"
         android:textStyle="bold"
-        android:layout_alignBaseline="@+id/textViewExempl"
-        android:layout_alignBottom="@+id/textViewExempl"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginRight="27dp"
+        android:layout_marginEnd="27dp"
+        android:layout_alignBottom="@+id/imageView2"
+        android:layout_toLeftOf="@+id/textViewauteur"
+        android:layout_toStartOf="@+id/textViewauteur"
+        android:layout_marginBottom="18dp" />
 
-    <TextView
-        android:id="@+id/textViewExempl"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1005"
-        android:layout_below="@+id/imageView"
-        android:layout_alignRight="@+id/imageView"
-        android:layout_alignEnd="@+id/imageView"
-        android:layout_marginTop="10dp" />
-
-    <TextView
-        android:id="@+id/textViewdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1995"
-        android:layout_alignBaseline="@+id/textView14"
-        android:layout_alignBottom="@+id/textView14"
-        android:layout_alignLeft="@+id/textViewisbn"
-        android:layout_alignStart="@+id/textViewisbn" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2"
-        android:layout_alignBaseline="@+id/textView12"
-        android:layout_alignBottom="@+id/textView12"
-        android:layout_alignLeft="@+id/textViewauteur"
-        android:layout_alignStart="@+id/textViewauteur" />
-
-    <TextView
-        android:id="@+id/textViewedit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView16"
-        android:layout_alignBottom="@+id/textView16"
-        android:layout_alignLeft="@+id/textViewdate"
-        android:layout_alignStart="@+id/textViewdate"
-        android:text="harper Collins" />
-
-    <TextView
-        android:id="@+id/textViewisbn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView8"
-        android:layout_alignBottom="@+id/textView8"
-        android:layout_alignLeft="@+id/textViewExempl"
-        android:layout_alignStart="@+id/textViewExempl"
-        android:text="198655944587" />
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/cover"
+        android:layout_alignTop="@+id/textViewTitre"
+        android:layout_alignLeft="@+id/textViewTitre"
+        android:layout_alignStart="@+id/textViewTitre" />
 
 </RelativeLayout>

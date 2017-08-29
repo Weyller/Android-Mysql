@@ -52,11 +52,13 @@
         android:layout_marginEnd="22dp" />
 
 
-    <TextView
+    <Button
+        android:id="@+id/btlist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Liste de lives"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="20dp"
         android:layout_below="@+id/b2"
         android:layout_centerHorizontal="true" />
     <ListView
@@ -65,8 +67,8 @@
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/b3"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/btlist"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 </RelativeLayout>
