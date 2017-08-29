@@ -1,7 +1,6 @@
-package com.example.eleves.connecttomysql;
+package com.example.eleves.Bibliotheque;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  * Created by Administrator on 8/28/2017.

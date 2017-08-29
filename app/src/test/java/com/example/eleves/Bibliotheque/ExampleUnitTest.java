@@ -1,4 +1,4 @@
-package com.example.eleves.connecttomysql;
+package com.example.eleves.Bibliotheque;
 
 import org.junit.Test;
 

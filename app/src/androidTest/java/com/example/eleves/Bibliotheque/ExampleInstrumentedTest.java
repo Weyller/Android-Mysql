@@ -1,4 +1,4 @@
-package com.example.eleves.connecttomysql;
+package com.example.eleves.Bibliotheque;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
